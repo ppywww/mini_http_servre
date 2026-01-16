@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="百度是全球最大的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果。">
+    <title>百度一下，你就知道</title>
+    <link rel="shortcut icon" href="//www.baidu.com/favicon.ico" type="image/x-icon">
+    <link rel="search" type="application/opensearchdescription+xml" href="//www.baidu.com/content-search.xml" title="百度搜索">
+    <script>
+        // 百度统计代码（模拟）
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxxxxxxx";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        /* 完整样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            font: 13px/1.5 arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #333;
+            background: #fff;
+        }
+        
+        /* 顶部导航 */
+        #u {
+            height: 60px;
+            line-height: 60px;
+            text-align: right;
+            padding-right: 30px;
+            font-size: 13px;
+        }
+        
+        #u a {
+            margin: 0 7px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        #u a:hover {
+            color: #4e6ef2;
+        }
+        
+        #u #user {
+            color: #4e6ef2;
+        }
+        
+        /* 主要内容区 */
+        #wrapper {
+            width: 100%;
+            height: calc(100% - 180px);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Logo */
+        #logo {
+            margin-bottom: 20px;
+        }
+        
+        #logo img {
+            width: 270px;
+            height: 129px;
+            display: block;
+        }
+        
+        /* 搜索框容器 */
+        #form {
+            width: 670px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* 搜索输入框 */
+        #kw {
+            width: 100%;
+            height: 44px;
+            border: 1px solid #b6b6b6;
+            border-radius: 22px;
+            padding: 0 50px;
+            font-size: 18px;
+            outline: none;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        #kw:hover, #kw:focus {
+            border-color: #4e6ef2;
+        }
+        
+        /* 搜索图标 */
+        .s_ipt_wr {
+            position: relative;
+        }
+        
+        .s_ipt_wr:before {
+            content: "🔍";
+            position: absolute;
+            left: 18px;
+            top: 12px;
+            color: #ccc;
+            font-size: 18px;
+        }
+        
+        /* 语音和相机图标 */
+        .tools {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            display: flex;
+        }
+        
+        .voice-icon, .camera-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4e6ef2;
+            font-size: 18px;
+        }
+        
+        .voice-icon:hover, .camera-icon:hover {
+            color: #4662d9;
+        }
+        
+        /* 搜索按钮 */
+        #su {
+            width: 108px;
+            height: 44px;
+            background: #4e6ef2;
+            color: white;
+            border: none;
+            border-radius: 22px;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        
+        #su:hover {
+            background: #4662d9;
+        }
+        
+        /* 底部区域 */
+        #ftCon {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: #f2f2f2;
+            border-top: 1px solid #e4e4e4;
+        }
+        
+        #ftConw {
+            width: 1000px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+        
+        /* 底部链接 */
+        #bottom_links {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        #bottom_links a {
+            margin: 0 10px;
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        #bottom_links a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+        
+        /* 版权信息 */
+        #copyright {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        /* 快速链接 */
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .quick-item {
+            width: 100px;
+            text-align: center;
+            margin: 0 15px;
+        }
+        
+        .quick-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            color: #666;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .quick-icon:hover {
+            background: #e8e8e8;
+        }
+        
+        .quick-text {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            #form {
+                width: 90%;
+            }
+            
+            #ftConw {
+                width: 90%;
+            }
+            
+            .quick-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div id="u">
+        <a href="https://www.baidu.com/more" name="tj_more">更多产品</a>
+        <a href="https://passport.baidu.com/v2/?login&tpl=mn&u=http%3A%2F%2Fwww.baidu.com%2F" name="tj_login">登录</a>
+        <a href="https://www.baidu.com/gaoji/preferences.html" name="tj_setting">搜索设置</a>
+    </div>
+    
+    <!-- 主要内容 -->
+    <div id="wrapper">
+        <!-- Logo -->
+        <div id="logo">
+            <img src="https://www.baidu.com/img/bd_logo1.png" alt="百度一下，你就知道">
+        </div>
+        
+        <!-- 搜索表单 -->
+        <form id="form" name="f" action="https://www.baidu.com/s">
+            <div class="s_ipt_wr">
+                <input type="text" id="kw" name="wd" class="s_ipt" autocomplete="off" maxlength="100">
+                <div class="tools">
+                    <div class="voice-icon" title="语音搜索" onclick="voiceSearch()">🎤</div>
+                    <div class="camera-icon" title="拍照搜索" onclick="imageSearch()">📷</div>
+                </div>
+            </div>
+            <input type="submit" id="su" value="百度一下">
+        </form>
+        
+        <!-- 快速链接 -->
+        <div class="quick-links">
+            <div class="quick-item">
+                <div class="quick-icon" onclick="window.location.href='https://news.baidu.com'">📰</div>
+                <div class="quick-text">资讯</div>
+            </div>
+            <div class="quick-item">
+                <div class="quick-icon" onclick="window.location.href='https://map.baidu.com'">🗺️</div>
+                <div class="quick-text">地图</div>
+            </div>
+            <div class="quick-item">
+                <div class="quick-icon" onclick="window.location.href='https://image.baidu.com'">🖼️</div>
+                <div class="quick-text">图片</div>
+            </div>
+            <div class="quick-item">
+                <div class="quick-icon" onclick="window.location.href='https://pan.baidu.com'">📁</div>
+                <div class="quick-text">网盘</div>
+            </div>
+            <div class="quick-item">
+                <div class="quick-icon" onclick="window.location.href='https://wenku.baidu.com'">📚</div>
+                <div class="quick-text">文库</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部信息 -->
+    <div id="ftCon">
+        <div id="ftConw">
+            <div id="bottom_links">
+                <a href="https://home.baidu.com">关于百度</a>
+                <a href="http://ir.baidu.com">About Baidu</a>
+                <a href="http://www.baidu.com/duty">使用百度前必读</a>
+                <a href="http://help.baidu.com">帮助中心</a>
+                <a href="https://www.baidu.com/contact/">联系我们</a>
+                <a href="https://www.baidu.com/jubao/">举报投诉</a>
+                <a href="http://www.beian.gov.cn">京公网安备</a>
+            </div>
+            <div id="copyright">
+                ©2024 Baidu <a href="http://www.baidu.com/duty/">使用百度前必读</a> 
+                <a href="http://www.baidu.com/feedback/index.html">意见反馈</a> 
+                京ICP证030173号 <a href="http://www.beian.gov.cn">京公网安备11000002000001号</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 搜索相关功能
+        var searchInput = document.getElementById('kw');
+        var searchForm = document.getElementById('form');
+        
+        // 自动聚焦到搜索框
+        searchInput.focus();
+        
+        // 表单提交处理
+        searchForm.onsubmit = function(e) {
+            e.preventDefault();
+            var keyword = searchInput.value.trim();
+            if (keyword === '') {
+                searchInput.focus();
+                return false;
+            }
+            // 实际百度会在这里进行一些处理，然后跳转
+            window.location.href = 'https://www.baidu.com/s?wd=' + encodeURIComponent(keyword);
+            return false;
+        };
+        
+        // 语音搜索
+        function voiceSearch() {
+            if ('webkitSpeechRecognition' in window) {
+                var recognition = new webkitSpeechRecognition();
+                recognition.lang = 'zh-CN';
+                recognition.onresult = function(event) {
+                    searchInput.value = event.results[0][0].transcript;
+                    searchForm.submit();
+                };
+                recognition.start();
+            } else {
+                alert('您的浏览器不支持语音搜索');
+            }
+        }
+        
+        // 图片搜索
+        function imageSearch() {
+            var input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                if (e.target.files.length > 0) {
+                    alert('图片搜索功能（模拟上传：' + e.target.files[0].name + '）');
+                    // 实际会调用百度的图片搜索API
+                }
+            };
+            input.click();
+        }
+        
+        // 热门搜索建议（简化版）
+        var hotKeywords = [
+            '人工智能', '世界杯', '天气预报', '新冠肺炎',
+            '股票行情', '电影推荐', '旅游攻略', '科技新闻'
+        ];
+        
+        // 模拟百度统计
+        window._hmt = window._hmt || [];
+        
+        // 页面加载完成后的操作
+        window.onload = function() {
+            // 模拟百度统计页面浏览
+            _hmt.push(['_trackPageview']);
+            
+            // 搜索框输入建议（简化版）
+            searchInput.addEventListener('input', function() {
+                var val = this.value;
+                if (val.length > 0) {
+                    // 这里可以添加搜索建议逻辑
+                    console.log('搜索建议：', val);
+                }
+            });
+        };
+    </script>
+</body>
+</html>
